@@ -1,0 +1,49 @@
+#
+# Copyright (C) 2018 The TwrpBuilder Open-Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# Mount point		FStype					Device													Flags
+
+/system       ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system        /dev/block/mmcblk0p6	flags=display="System";backup=1;canbewiped;wipeingui
+/cache        ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/cache         /dev/block/mmcblk0p2	flags=display="Cache";canbewiped;wipeingui;wipeduringfactoryreset
+/data         ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/userdata      /dev/block/mmcblk0p3	flags=length=-16384;display="Data";backup=1;canbewiped;wipeingui;wipeduringfactoryreset;settingsstorage;encryptable=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/metadata
+
+/boot         emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/boot          /dev/block/mmcblk0p7      flags=display="Boot";backup=1;flashimg=1
+/logo         emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/logo          				flags=display="Logo";backup=1;flashimg=1
+/nvdata       ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvdata        				flags=display="NvData";backup=1;flashimg=1
+/mpt          ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/mpt					flags=display="Mpt";backup=1;flashimg=1
+
+/recovery     emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/recovery      				flags=display="Recovery";backup=1;flashimg=1;rw,seclabel,nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered 0 0
+/metadata     emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/metadata      
+
+/external_sd  vfat        /dev/block/mmcblk0p4							flags=display="Micro SDcard";storage;wipeingui;removable;settingsstorage;backup=0;encryptable=userdata
+/usbotg       auto        /dev/block/sda1                /dev/block/sda                         flags=display="USB-OTG";backup=0;wipeingui;storage;removable
+auto          vfat        /devices/mtk-msdc.0/11230000.msdc0*                   defaults        voldmanaged=sdcard0:auto
+auto          auto        /devices/mtk-msdc.0/11240000.msdc1*                   defaults        voldmanaged=sdcard1:auto;noemulatedsd;encryptable=userdata
+auto          vfat        /devices/platform/mt_usb*                             defaults        voldmanaged=usbotg:auto
+
+/lk           emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/lk            				flags=display="Uboot";backup=1;flashimg=1
+/proinfo      emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/proinfo       				flags=display="Proinfo";backup=1
+/protect_f    ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/protect1      				flags=display="Protect_F";backup=1
+/protect_s    ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/protect2      				flags=display="Protect_S";backup=1
+/misc         emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/para          				flags=display="Misc";backup=1
+/misc2        emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/misc2					flags=display="Misc2";backup=1
+/encrypt      emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/encrypt					flags=display="Encrypt";backup=1
+/eksst        emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/eksst					flags=display="Eksst";backup=1
+/secro        emmc        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/secro         				flags=display="Secro";backup=1;flashimg=1
+/cust         ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/cust          				flags=display="Cust";backup=1;flashimg=1
+/tee2         ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/persist_lg          			flags=display="Persist-lg";backup=1;flashimg=1
+/persist      ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/persist           			flags=display="Persist";backup=1;flashimg=1
+/OP           ext4        /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/OP					flags=display="OP";backup=1;flashimg=1
